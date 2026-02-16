@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suraj Parmar · full‑stack developer (Java, PHP, MySQL, replicas)</title>
+  <!-- Font Awesome 6 (free) + devicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a1928;  /* deep navy */
+      color: #ccddee;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* gradient overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 30%, #1a3344, #0b1a2b);
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ===== navigation ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid #2a4055;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #f0b90b, #3ecf8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      background: #1f3446;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #b0e0ff;
+      -webkit-text-fill-color: #b0e0ff;
+      margin-left: 12px;
+      border: 1px solid #3ecf8e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: #bcd0e6;
+      transition: color 0.2s;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a i {
+      color: #3ecf8e;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 8px #3ecf8e;
+    }
+
+    /* ===== buttons ===== */
+    .btn {
+      display: inline-block;
+      background: #0fbc6d;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 14px 0 #0fbc6d70;
+      border: 1px solid #2ed889;
+    }
+    .btn-outline {
+      background: transparent;
+      box-shadow: none;
+      border: 1px solid #3ecf8e;
+      color: #c3f0d6;
+    }
+    .btn-outline:hover {
+      background: #0fbc6d;
+      color: white;
+      border-color: #0fbc6d;
+    }
+    .btn:hover {
+      background: #0c9e59;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px #0fbc6d;
+    }
+
+    /* ===== hero section ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 3.5rem 0 5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 450px;
+    }
+
+    .greet {
+      display: inline-block;
+      background: #1f3446;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      border-left: 4px solid #f0b90b;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .greet i {
+      color: #f0b90b;
+      margin-right: 6px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(to right, #f5f9ff, #8edbff, #3ecf8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-highlight {
+      color: #aac4e0;
+      font-size: 1.3rem;
+      margin-bottom: 1.8rem;
+      border-left: 3px solid #f0b90b;
+      padding-left: 1.2rem;
+    }
+    .hero-highlight i {
+      color: #3ecf8e;
+      margin-right: 8px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 0 0 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #1f384b, #0b2333);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      box-shadow: 0 25px 40px -10px #00000080, 0 0 0 2px #3ecf8e inset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #0fbc6d;
+    }
+    .hero-image i {
+      font-size: 8rem;
+      color: #f0b90b;
+      filter: drop-shadow(0 0 15px #0fbc6d);
+    }
+
+    /* ===== skills cloud ===== */
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+    }
+    .skill-chip {
+      background: #1b3143;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      border: 1px solid #3c5e7a;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 5px 0 #0b1923;
+    }
+    .skill-chip i {
+      font-size: 1.8rem;
+    }
+    .skill-chip.java i { color: #f8981d; }
+    .skill-chip.php i { color: #b0a1e0; }
+    .skill-chip.mysql i { color: #3e9ecf; }
+    .skill-chip.html i { color: #e44d26; }
+    .skill-chip.css i { color: #379ad6; }
+    .skill-chip:hover {
+      transform: scale(1.03);
+      border-color: #f0b90b;
+      box-shadow: 0 8px 0 #0b1923, 0 0 20px #3ecf8e;
+    }
+
+    /* ===== section titles ===== */
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 3rem 0 2rem;
+      display: inline-block;
+      border-bottom: 4px solid #f0b90b;
+      padding-bottom: 8px;
+    }
+    .section-title i {
+      color: #3ecf8e;
+      margin-right: 12px;
+    }
+
+    /* ===== REPLICA SHOWCASE (the "made replica of many websites" section) ===== */
+    .replicas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    .replica-card {
+      background: #1b2c3b;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      border: 1px solid #2c4459;
+      box-shadow: 0 20px 30px -15px #030b12;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .replica-card::before {
+      content: "⚡ replica";
+      position: absolute;
+      top: 15px;
+      right: -35px;
+      background: #f0b90b;
+      color: #0a1a26;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.2rem 2.5rem;
+      transform: rotate(45deg);
+      width: 140px;
+      text-align: center;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 10px #f0b90b80;
+    }
+    .replica-card:hover {
+      transform: translateY(-10px);
+      border-color: #3ecf8e;
+      box-shadow: 0 30px 30px -12px #0f3f2c;
+    }
+    .replica-icon {
+      background: #102433;
+      width: 70px;
+      height: 70px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      border: 1px solid #3c5e7a;
+    }
+    .replica-icon i {
+      font-size: 2.5rem;
+      color: #f0b90b;
+    }
+    .replica-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: #edf5fe;
+    }
+    .replica-desc {
+      color: #a6c1dd;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .tech-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0 1.8rem;
+    }
+    .tech-badge {
+      background: #21384b;
+      padding: 0.3rem 1.1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #d1e2f5;
+    }
+    .tech-badge.java { background: #4a2c1a; color: #fda65c; }
+    .tech-badge.php { background: #2e2b45; color: #bbadff; }
+    .tech-badge.mysql { background: #0a3142; color: #7ac7f4; }
+    .tech-badge.html { background: #653d1e; color: #ffad7a; }
+    .tech-badge.css { background: #1e3850; color: #9ac4ff; }
+
+    .repo-link {
+      color: #afcef0;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+    }
+    .repo-link i {
+      color: #f0b90b;
+    }
+    .repo-link:hover {
+      color: #3ecf8e;
+      gap: 10px;
+    }
+
+    /* ===== full‑stack java/php project (hybrid) ===== */
+    .featured-project {
+      background: linear-gradient(145deg, #1d3243, #142433);
+      border-radius: 40px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border: 1px solid #3e6a5e;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .featured-content {
+      flex: 2 1 300px;
+    }
+    .featured-content h2 {
+      font-size: 2.2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .proj-badge {
+      background: #f0b90b;
+      color: #0a1c2b;
+      padding: 0.3rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+    .tech-stack-row {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    .tech-stack-row span {
+      background: #102b38;
+      padding: 0.5rem 1.8rem;
+      border-radius: 40px;
+      border: 1px solid #3ecf8e;
+      font-weight: 500;
+    }
+    .featured-visual {
+      flex: 1 1 200px;
+      background: #0b1f2b;
+      border-radius: 30px;
+      padding: 2rem 1rem;
+      text-align: center;
+      border: 2px dashed #f0b90b;
+    }
+    .featured-visual i {
+      font-size: 5rem;
+      color: #3ecf8e;
+    }
+
+    /* ===== about + contact ===== */
+    .about-wrap {
+      display: flex;
+      gap: 2rem;
+      margin: 3rem 0 4rem;
+      flex-wrap: wrap;
+    }
+    .about-card {
+      background: #1b2f3f;
+      flex: 2 1 350px;
+      padding: 2.2rem;
+      border-radius: 38px;
+      border: 1px solid #36556e;
+    }
+    .about-card h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #f0f7ff;
+    }
+    .about-card p {
+      color: #c0d4ec;
+      margin-bottom: 1.8rem;
+    }
+    .contact-card {
+      flex: 1 1 260px;
+      background: #0d2535;
+      border-radius: 38px;
+      padding: 2.2rem;
+      border: 1px solid #3ecf8e;
+      box-shadow: 0 15px 20px -10px #0b3729;
+    }
+    .contact-card h3 {
+      font-size: 2rem;
+      color: #f0b90b;
+      margin-bottom: 1.8rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item i {
+      width: 30px;
+      color: #3ecf8e;
+      font-size: 1.4rem;
+    }
+    .contact-item a {
+      color: #c6defa;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      color: white;
+      text-decoration: underline #f0b90b;
+    }
+
+    /* ===== footer ===== */
+    .footer {
+      border-top: 1px solid #234256;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #8ba5c2;
+    }
+    .footer a {
+      color: #b0caf0;
+    }
+
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 2.5rem; }
+      .navbar { flex-direction: column; }
+      .nav-links { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- navigation -->
+    <nav class="navbar">
+      <div class="logo">Suraj Parmar <span>full‑stack</span></div>
+      <div class="nav-links">
+        <a href="#"><i class="fa-solid fa-copy"></i> Replicas</a>
+        <a href="#"><i class="fa-brands fa-java"></i> Java</a>
+        <a href="#"><i class="fa-brands fa-php"></i> PHP</a>
+        <a href="#"><i class="fa-solid fa-database"></i> MySQL</a>
+        <a href="#"><i class="fa-regular fa-message"></i> Contact</a>
+      </div>
+      <a href="#" class="btn"><i class="fa-brands fa-github"></i> suraj-dev</a>
+    </nav>
+
+    <!-- hero section with name -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="greet"><i class="fa-regular fa-hand-peace"></i> नमस्ते, I'm Suraj Parmar – replica & backend specialist</div>
+        <h1>Java • PHP • MySQL •<br> HTML/CSS clone architect</h1>
+        <div class="hero-highlight">
+          <i class="fa-regular fa-clipboard"></i> built 25+ replicas of real‑world websites (Amazon, Flipkart, Discord, Zomato, etc.)
+        </div>
+        <div class="hero-cta">
+          <a href="#" class="btn"><i class="fa-regular fa-eye"></i> view replicas</a>
+          <a href="#" class="btn btn-outline"><i class="fa-regular fa-file-code"></i> resume</a>
+        </div>
+        <!-- inline skills -->
+        <div style="display: flex; gap: 1.2rem; margin-top: 2.5rem; flex-wrap: wrap;">
+          <span style="background:#1f384b; padding:0.3rem 1.4rem; border-radius:30px"><i class="fa-brands fa-java" style="color:#f8981d;"></i> Java 11/17</span>
+          <span style="background:#1f384b; padding:0.3rem 1.4rem; border-radius:30px"><i class="fa-brands fa-php"></i> PHP 8</span>
+          <span style="background:#1f384b; padding:0.3rem 1.4rem; border-radius:30px"><i class="fa-solid fa-database"></i> MySQL</span>
+          <span style="background:#1f384b; padding:0.3rem 1.4rem; border-radius:30px"><i class="fa-brands fa-html5"></i> HTML5/CSS3</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fa-solid fa-code-branch"></i>
+      </div>
+    </section>
+
+    <!-- skill chips (interactive) -->
+    <div class="skills-cloud">
+      <div class="skill-chip java"><i class="fa-brands fa-java"></i> Java</div>
+      <div class="skill-chip php"><i class="fa-brands fa-php"></i> PHP</div>
+      <div class="skill-chip mysql"><i class="fa-solid fa-database"></i> MySQL</div>
+      <div class="skill-chip html"><i class="fa-brands fa-html5"></i> HTML</div>
+      <div class="skill-chip css"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+    </div>
+
+    <!-- REPLICA GALLERY : "made replica of many websites" -->
+    <h2 class="section-title"><i class="fa-regular fa-copy"></i> website replicas – suraj's clone portfolio</h2>
+    <div class="replicas-grid">
+      <div class="replica-card">
+        <div class="replica-icon"><i class="fa-brands fa-amazon"></i></div>
+        <h3>Amazon.in clone</h3>
+        <div class="replica-desc">Pixel-perfect home & product page + cart. Java servlet backend, MySQL for products, PHP for auth.</div>
+        <div class="tech-badge-group">
+          <span class="tech-badge java">Java</span>
+          <span class="tech-badge php">PHP</span>
+          <span class="tech-badge mysql">MySQL</span>
+          <span class="tech-badge html">HTML/CSS</span>
+        </div>
+        <a href="#" class="repo-link">code <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="replica-card">
+        <div class="replica-icon"><i class="fa-brands fa-discord"></i></div>
+        <h3>Discord UI clone</h3>
+        <div class="replica-desc">Channel layout, night mode, + Java websocket simulation. PHP message storage & MySQL.</div>
+        <div class="tech-badge-group">
+          <span class="tech-badge java">Java</span>
+          <span class="tech-badge php">PHP</span>
+          <span class="tech-badge mysql">MySQL</span>
+          <span class="tech-badge html">HTML/CSS</span>
+        </div>
+        <a href="#" class="repo-link">live <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="replica-card">
+        <div class="replica-icon"><i class="fa-solid fa-utensils"></i></div>
+        <h3>Zomato clone</h3>
+        <div class="replica-desc">Restaurant listings, filters, dynamic menu via PHP/MySQL + Java admin dashboard.</div>
+        <div class="tech-badge-group">
+          <span class="tech-badge php">PHP</span>
+          <span class="tech-badge mysql">MySQL</span>
+          <span class="tech-badge java">Java (Swing)</span>
+          <span class="tech-badge html">HTML/CSS</span>
+        </div>
+        <a href="#" class="repo-link">demo <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="replica-card">
+        <div class="replica-icon"><i class="fa-brands fa-spotify"></i></div>
+        <h3>Spotify clone</h3>
+        <div class="replica-desc">Landing + music player UI with PHP playlist backend & MySQL library.</div>
+        <div class="tech-badge-group">
+          <span class="tech-badge html">HTML</span>
+          <span class="tech-badge css">CSS</span>
+          <span class="tech-badge php">PHP</span>
+          <span class="tech-badge mysql">MySQL</span>
+        </div>
+        <a href="#" class="repo-link">explore <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <!-- extra replica to emphasize "many" -->
+      <div class="replica-card">
+        <div class="replica-icon"><i class="fa-brands fa-flipkart"></i></div>
+        <h3>Flipkart replica</h3>
+        <div class="replica-desc">Product grid, slider, cart with Java session handling & MySQL.</div>
+        <div class="tech-badge-group">
+          <span class="tech-badge java">Java</span>
+          <span class="tech-badge mysql">MySQL</span>
+          <span class="tech-badge html">HTML/CSS</span>
+        </div>
+        <a href="#" class="repo-link">more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="replica-card">
+        <div class="replica-icon"><i class="fa-brands fa-youtube"></i></div>
+        <h3>YouTube clone</h3>
+        <div class="replica-desc">Video listing, comments (PHP/MySQL), Java backend for recommendations.</div>
+        <div class="tech-badge-group">
+          <span class="tech-badge php">PHP</span>
+          <span class="tech-badge mysql">MySQL</span>
+          <span class="tech-badge java">Java</span>
+          <span class="tech-badge html">HTML/CSS</span>
+        </div>
+        <a href="#" class="repo-link">watch <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- featured hybrid project (java + php + mysql) -->
+    <div class="featured-project">
+      <div class="featured-content">
+        <h2><span class="proj-badge">featured</span> <i class="fa-solid fa-layer-group"></i> E‑commerce replica suite</h2>
+        <p>Complete multi‑store replica platform: Amazon, Flipkart, Myntra dashboards – all connected to a single MySQL backend with Java (Spring) admin and PHP frontend. Used to demonstrate full‑stack cloning skills.</p>
+        <div class="tech-stack-row">
+          <span><i class="fa-brands fa-java"></i> Java 17</span>
+          <span><i class="fa-brands fa-php"></i> PHP 8</span>
+          <span><i class="fa-solid fa-database"></i> MySQL</span>
+          <span><i class="fa-brands fa-html5"></i> HTML/CSS</span>
+        </div>
+        <a href="#" class="btn btn-outline" style="margin-top: 10px;"><i class="fa-regular fa-folder-open"></i> view case study</a>
+      </div>
+      <div class="featured-visual">
+        <i class="fa-solid fa-diagram-project"></i>
+        <p style="margin-top: 15px; color: #b0e5d0;">25+ replicas</p>
+      </div>
+    </div>
+
+    <!-- about + contact (with name Suraj Parmar) -->
+    <div class="about-wrap">
+      <div class="about-card">
+        <h3><i class="fa-regular fa-user" style="color:#f0b90b;"></i> Suraj Parmar</h3>
+        <p>I'm a full‑stack developer specializing in <strong>Java, PHP, MySQL, HTML, and CSS</strong>. Over the last 4 years, I've recreated 25+ popular websites — from e‑commerce giants like Amazon and Flipkart to social platforms like Discord and Spotify. I focus on pixel‑perfect UI replication combined with solid backend logic (Java servlets, PHP sessions, MySQL relations).</p>
+        <p><i class="fa-regular fa-circle-check" style="color:#3ecf8e;"></i> 30+ database designs • 25+ replica projects • Java & PHP hybrid expert</p>
+        <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+          <span><i class="fa-regular fa-file-lines"></i> 25+ replicas</span>
+          <span><i class="fa-regular fa-database"></i> 40+ tables</span>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3><i class="fa-regular fa-paper-plane"></i> connect</h3>
+        <div class="contact-item">
+          <i class="fa-regular fa-envelope"></i>
+          <a href="#">suraj.parmar@dev.in</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-github"></i>
+          <a href="#">github/suraj-replicas</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="#">linkedin/in/surajparmar</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-regular fa-file-code"></i>
+          <a href="#">suraj.dev/replicas</a>
+        </div>
+        <div style="margin-top: 2rem; border-top: 1px solid #3b6075; padding-top: 1.5rem;">
+          <i class="fa-regular fa-clock"></i> open for replica projects
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <span>© 2025 Suraj Parmar – java • php • mysql replica portfolio</span>
+      <span style="display: flex; gap: 1.8rem;">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+      </span>
+    </footer>
+  </div>
+  <div style="height: 2rem;"></div>
+</body>
+</html>

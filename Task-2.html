@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechUtsav 2025 · college event landing page</title>
+  <!-- Tailwind via CDN + a touch of custom animation -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- smooth scroll & extra polish -->
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hover-glow:hover {
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+    }
+    /* custom gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #f472b6, #a78bfa, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans antialiased">
+
+  <!-- ===== HERO / NAVBAR (responsive) ===== -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 text-white">
+    <!-- abstract shapes -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-40 h-40 rounded-full bg-pink-400 blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-blue-400 blur-3xl"></div>
+    </div>
+    
+    <!-- navigation -->
+    <nav class="relative z-10 container mx-auto px-6 py-5 flex flex-wrap items-center justify-between">
+      <a href="#" class="text-3xl font-black tracking-tight drop-shadow-lg"><span class="text-pink-300">Tech</span>Utsav<span class="text-amber-300 text-xl ml-1">'25</span></a>
+      <div class="flex gap-6 text-base font-medium max-sm:hidden">
+        <a href="#about" class="hover:text-pink-200 transition">About</a>
+        <a href="#schedule" class="hover:text-pink-200 transition">Schedule</a>
+        <a href="#highlights" class="hover:text-pink-200 transition">Highlights</a>
+        <a href="#speakers" class="hover:text-pink-200 transition">Speakers</a>
+        <a href="#register" class="hover:text-pink-200 transition">Register</a>
+      </div>
+      <a href="#register" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg transition flex items-center gap-1"><i class="fa-regular fa-calendar-check"></i> <span class="max-sm:hidden">Join now</span></a>
+      <!-- mobile menu icon (simplified) -->
+      <button class="sm:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+    </nav>
+
+    <!-- hero main content -->
+    <div class="relative z-10 container mx-auto px-6 py-16 md:py-24 flex flex-col lg:flex-row items-center gap-12">
+      <div class="flex-1 text-center lg:text-left fade-in-up">
+        <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium tracking-wide mb-6 border border-white/30"><i class="fa-regular fa-star mr-1 text-amber-300"></i> annual techno-cultural fest</span>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-md"><span class="gradient-text">Ignite • Innovate •</span><br><span class="text-white">Inspire</span></h1>
+        <p class="text-xl text-slate-200 max-w-xl mx-auto lg:mx-0 mb-8">3 days of mind-blowing tech, workshops, hackathons, and cultural nights at NIT Campus.</p>
+        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+          <a href="#register" class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-semibold shadow-xl text-lg transition flex items-center gap-2"><i class="fa-regular fa-circle-check"></i> Register now</a>
+          <a href="#schedule" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white px-8 py-3 rounded-full font-semibold transition flex items-center gap-2"><i class="fa-regular fa-clock"></i> Event schedule</a>
+        </div>
+        <!-- event date badge -->
+        <div class="flex items-center gap-5 mt-10 text-sm text-slate-300 flex-wrap justify-center lg:justify-start">
+          <span><i class="fa-regular fa-calendar mr-1 text-pink-300"></i> 12–14 March 2025</span>
+          <span><i class="fa-regular fa-building mr-1 text-pink-300"></i> Main Auditorium + Online</span>
+          <span><i class="fa-regular fa-users mr-1 text-pink-300"></i> 2000+ expected</span>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <div class="relative w-72 h-72 md:w-96 md:h-96">
+          <!-- animated floating elements -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-pink-400 to-indigo-500 rounded-3xl rotate-6 opacity-70 blur-md"></div>
+          <div class="absolute inset-0 bg-white/10 backdrop-blur-sm border border-white/40 rounded-3xl flex items-center justify-center text-8xl shadow-2xl">
+            <i class="fa-solid fa-microchip text-pink-200"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- wave divider -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-20 text-slate-50 fill-current">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current text-slate-50"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT / EVENT DETAILS ===== -->
+  <section id="about" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-pink-500 font-semibold tracking-wider text-sm"><i class="fa-regular fa-lightbulb mr-2"></i>WHY TECHUTSAV?</span>
+        <h2 class="text-4xl font-bold text-slate-800 mt-2 mb-6">Where passion meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-indigo-600">innovation</span></h2>
+        <p class="text-lg text-slate-600">TechUtsav is the biggest inter-college fest in the region, bringing together developers, designers, and dreamers. From competitive coding to robotics, from dance nights to startup pitches — we've got it all.</p>
+      </div>
+      <!-- stats cards (responsive) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center border border-slate-200 hover:shadow-xl transition"><i class="fa-regular fa-calendar-circle-plus text-4xl text-pink-500 mb-3"></i><div class="text-3xl font-bold text-slate-800">30+</div><div class="text-slate-500">Events</div></div>
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center border border-slate-200 hover:shadow-xl transition"><i class="fa-regular fa-users text-4xl text-indigo-500 mb-3"></i><div class="text-3xl font-bold text-slate-800">50+</div><div class="text-slate-500">Speakers</div></div>
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center border border-slate-200 hover:shadow-xl transition"><i class="fa-regular fa-trophy text-4xl text-amber-500 mb-3"></i><div class="text-3xl font-bold text-slate-800">₹2L+</div><div class="text-slate-500">Prizes</div></div>
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center border border-slate-200 hover:shadow-xl transition"><i class="fa-regular fa-building text-4xl text-emerald-500 mb-3"></i><div class="text-3xl font-bold text-slate-800">20+</div><div class="text-slate-500">Workshops</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCHEDULE (responsive tabs/cards) ===== -->
+  <section id="schedule" class="py-20 bg-gradient-to-b from-slate-100 to-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center">
+        <span class="text-pink-500 font-semibold text-sm"><i class="fa-regular fa-clock mr-2"></i>3 DAYS, ENDLESS ENERGY</span>
+        <h2 class="text-4xl font-bold text-slate-800 mt-2 mb-4">Event schedule</h2>
+        <p class="text-slate-600 max-w-xl mx-auto">Plan your fest — hackathons, tech talks, cultural nights, and more.</p>
+      </div>
+      <!-- day tabs (simulated with grid) -->
+      <div class="flex flex-wrap justify-center gap-3 my-12">
+        <button class="bg-pink-500 text-white px-8 py-2 rounded-full font-medium">Day 1 · 12 Mar</button>
+        <button class="bg-white text-slate-700 px-8 py-2 rounded-full font-medium border border-slate-300 hover:bg-slate-100">Day 2 · 13 Mar</button>
+        <button class="bg-white text-slate-700 px-8 py-2 rounded-full font-medium border border-slate-300 hover:bg-slate-100">Day 3 · 14 Mar</button>
+      </div>
+
+      <!-- schedule cards grid (responsive) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- card 1 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-pink-400 hover:shadow-xl transition">
+          <div class="flex justify-between items-start"><span class="text-sm font-semibold text-pink-600 bg-pink-100 px-3 py-1 rounded-full">09:00 – 11:00</span><i class="fa-regular fa-microchip text-2xl text-slate-300"></i></div>
+          <h3 class="text-xl font-bold mt-3 text-slate-800">Inauguration + Keynote</h3>
+          <p class="text-slate-500">by Dr. Anjali Sharma (CTO, TechVision)</p>
+          <p class="text-sm text-slate-400 mt-2"><i class="fa-regular fa-location-dot mr-1"></i> Main Auditorium</p>
+        </div>
+        <!-- card 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-indigo-400 hover:shadow-xl transition">
+          <div class="flex justify-between"><span class="text-sm font-semibold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">11:30 – 13:30</span><i class="fa-regular fa-code text-2xl text-slate-300"></i></div>
+          <h3 class="text-xl font-bold mt-3 text-slate-800">Hackathon Kickoff</h3>
+          <p class="text-slate-500">24hr coding battle · themes revealed</p>
+          <p class="text-sm text-slate-400 mt-2"><i class="fa-regular fa-location-dot mr-1"></i> CS Building, Lab 101</p>
+        </div>
+        <!-- card 3 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-amber-400 hover:shadow-xl transition">
+          <div class="flex justify-between"><span class="text-sm font-semibold text-amber-600 bg-amber-100 px-3 py-1 rounded-full">14:00 – 16:00</span><i class="fa-regular fa-paint-brush text-2xl text-slate-300"></i></div>
+          <h3 class="text-xl font-bold mt-3 text-slate-800">UI/UX Workshop</h3>
+          <p class="text-slate-500">Figma to prototype · hands-on</p>
+          <p class="text-sm text-slate-400 mt-2"><i class="fa-regular fa-location-dot mr-1"></i> Design Studio</p>
+        </div>
+        <!-- card 4 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-emerald-400 hover:shadow-xl transition">
+          <div class="flex justify-between"><span class="text-sm font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">16:30 – 18:30</span><i class="fa-regular fa-brain text-2xl text-slate-300"></i></div>
+          <h3 class="text-xl font-bold mt-3 text-slate-800">AI & ML symposium</h3>
+          <p class="text-slate-500">Industry panel + demos</p>
+          <p class="text-sm text-slate-400 mt-2"><i class="fa-regular fa-location-dot mr-1"></i> Seminar Hall B</p>
+        </div>
+        <!-- card 5 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-rose-400 hover:shadow-xl transition">
+          <div class="flex justify-between"><span class="text-sm font-semibold text-rose-600 bg-rose-100 px-3 py-1 rounded-full">19:30 – 22:00</span><i class="fa-regular fa-music text-2xl text-slate-300"></i></div>
+          <h3 class="text-xl font-bold mt-3 text-slate-800">Cultural night · Pro show</h3>
+          <p class="text-slate-500">Band performances + DJ night</p>
+          <p class="text-sm text-slate-400 mt-2"><i class="fa-regular fa-location-dot mr-1"></i> Open Air Theatre</p>
+        </div>
+        <!-- card 6 -->
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-purple-400 hover:shadow-xl transition">
+          <div class="flex justify-between"><span class="text-sm font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">09:00 – 17:00</span><i class="fa-regular fa-rocket text-2xl text-slate-300"></i></div>
+          <h3 class="text-xl font-bold mt-3 text-slate-800">Robowars & exhibitions</h3>
+          <p class="text-slate-500">College teams battle it out</p>
+          <p class="text-sm text-slate-400 mt-2"><i class="fa-regular fa-location-dot mr-1"></i> Sports Complex</p>
+        </div>
+      </div>
+      <div class="text-center mt-10"><a href="#" class="text-pink-600 font-semibold hover:underline"><i class="fa-regular fa-calendar-plus mr-1"></i> Download full schedule</a></div>
+    </div>
+  </section>
+
+  <!-- ===== HIGHLIGHTS (image gallery / cards) ===== -->
+  <section id="highlights" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center"><span class="text-pink-500 font-semibold text-sm"><i class="fa-regular fa-camera mr-2"></i>MEMORIES</span><h2 class="text-4xl font-bold text-slate-800 mt-2 mb-8">Last year highlights</h2></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&auto=format" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="hackathon"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white font-semibold">Hackathon 2024</span></div></div>
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&auto=format" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="cultural"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white font-semibold">Cultural night</span></div></div>
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square"><img src="https://images.unsplash.com/photo-1591115765373-5207764f72e4?w=400&auto=format" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="speaker"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white font-semibold">Keynote session</span></div></div>
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square"><img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=400&auto=format" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="workshop"><div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white font-semibold">Robotics workshop</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPEAKERS & GUESTS (responsive) ===== -->
+  <section id="speakers" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center"><span class="text-pink-500 font-semibold text-sm"><i class="fa-regular fa-star mr-2"></i>LEADERS</span><h2 class="text-4xl font-bold text-slate-800 mt-2 mb-12">Meet our speakers</h2></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center"><div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-pink-400 to-indigo-500 p-1"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format" class="rounded-full w-full h-full object-cover border-4 border-white"></div><h4 class="font-bold text-lg mt-4">Dr. Anjali S.</h4><p class="text-slate-500 text-sm">CTO, TechVision</p></div>
+        <div class="text-center"><div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-amber-400 to-pink-500 p-1"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format" class="rounded-full w-full h-full object-cover border-4 border-white"></div><h4 class="font-bold text-lg mt-4">Ravi Menon</h4><p class="text-slate-500 text-sm">AI researcher</p></div>
+        <div class="text-center"><div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 p-1"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format" class="rounded-full w-full h-full object-cover border-4 border-white"></div><h4 class="font-bold text-lg mt-4">Neha Kapoor</h4><p class="text-slate-500 text-sm">Founder, DesignUp</p></div>
+        <div class="text-center"><div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-purple-400 to-pink-400 p-1"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format" class="rounded-full w-full h-full object-cover border-4 border-white"></div><h4 class="font-bold text-lg mt-4">Arjun Singh</h4><p class="text-slate-500 text-sm">Google Developer Expert</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REGISTER / CTA ===== -->
+  <section id="register" class="py-24 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20"><div class="absolute top-10 left-20 w-72 h-72 bg-pink-400 rounded-full blur-3xl"></div><div class="absolute bottom-10 right-20 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div></div>
+    <div class="container mx-auto px-6 relative z-10 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to be part of it?</h2>
+      <p class="text-xl text-pink-100 max-w-2xl mx-auto mb-10">Registrations close 5 March 2025. Grab your spot before it's too late!</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#" class="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl transition flex items-center gap-2"><i class="fa-regular fa-pen-to-square"></i> Register now</a>
+        <a href="#" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg transition flex items-center gap-2"><i class="fa-regular fa-ticket"></i> View passes</a>
+      </div>
+      <div class="mt-8 text-sm text-pink-200"><i class="fa-regular fa-circle-check mr-1"></i> Free for NIT students · ₹199 for external</div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-slate-900 text-slate-300 py-12">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div><span class="text-white text-2xl font-bold">TechUtsav'25</span><p class="mt-3 text-sm">NIT Campus, Tech Park<br>12–14 March 2025</p></div>
+      <div><h5 class="text-white font-semibold mb-3">Quick links</h5><ul class="space-y-2 text-sm"><li><a href="#about" class="hover:text-pink-300">About</a></li><li><a href="#schedule" class="hover:text-pink-300">Schedule</a></li><li><a href="#register" class="hover:text-pink-300">Register</a></li></ul></div>
+      <div><h5 class="text-white font-semibold mb-3">Follow us</h5><div class="flex gap-4 text-xl"><a href="#" class="hover:text-pink-400"><i class="fa-brands fa-instagram"></i></a><a href="#" class="hover:text-pink-400"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="hover:text-pink-400"><i class="fa-brands fa-linkedin"></i></a></div></div>
+      <div><h5 class="text-white font-semibold mb-3">Contact</h5><p class="text-sm"><i class="fa-regular fa-envelope mr-2"></i> techutsav@nit.edu<br><i class="fa-regular fa-phone mr-2"></i> +91 98765 43210</p></div>
+    </div>
+    <div class="border-t border-slate-700 mt-10 pt-6 text-center text-xs text-slate-500">© 2025 TechUtsav · designed with <i class="fa-regular fa-heart text-pink-400"></i> by Suraj Parmar (Tailwind CSS)</div>
+  </footer>
+</body>
+</html>
